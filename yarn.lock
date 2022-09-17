@@ -2043,6 +2043,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-relay@*", "@types/react-relay@^14.1.1":
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-14.1.1.tgz#78f50309a19cf92bfaece563cc3a6ba43fcb5e23"
+  integrity sha512-uUXlJOjWmLF1awJGTSuolsCU3d9Qf7+YChBo/UvlX/neLaMYuAjHvzqB8EkafIOJtLi0AaKKvDL047rnoino2A==
+  dependencies:
+    "@types/react" "*"
+    "@types/relay-runtime" "*"
+
 "@types/react@*", "@types/react@^18.0.0":
   version "18.0.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.20.tgz#e4c36be3a55eb5b456ecf501bd4a00fd4fd0c9ab"
@@ -2051,6 +2059,20 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/relay-runtime@*", "@types/relay-runtime@^14.1.3":
+  version "14.1.3"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-14.1.3.tgz#7b0bf67d3392caef90548a14dcbd93a1b0c3f25e"
+  integrity sha512-8RUPQYwySOUZTqX29K6doeLyeJIACvJWqotqg3ssVFBGqnQgsWjlpo00I2PeHa0f6dwim95fAhKz7ehaA46/Yw==
+
+"@types/relay-test-utils@^14.1.0":
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/@types/relay-test-utils/-/relay-test-utils-14.1.0.tgz#6b0aa8b7491212dc35c84e335f1ee1ce612555df"
+  integrity sha512-qwt9JDaNFa3VNTYC5FKvDE38a3Blz8Pav95xvqhY2g2ECoz47G6oocVR6qySTNQ/1kp2rFvhGG4TtyThlQBh5A==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-relay" "*"
+    "@types/relay-runtime" "*"
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -7242,6 +7264,11 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
 
+prettier@2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
+  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
+
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
@@ -7442,6 +7469,13 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-error-boundary@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
+  integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 react-error-overlay@^6.0.11:
   version "6.0.11"
@@ -7677,6 +7711,16 @@ relay-runtime@14.1.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.2"
     invariant "^2.2.4"
+
+relay-test-utils@^14.1.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/relay-test-utils/-/relay-test-utils-14.1.0.tgz#c61177fb101e883ded45dc8e25c5f5543d0fb7b4"
+  integrity sha512-4Ftqc+LnHyhqU2LNOtD/UEqqutFF9qJn+xqn+xfxgUGjU4X42vVhAN8KdG3q4KqE142EX0S8oPX5kA0FyFFiWg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^3.0.2"
+    invariant "^2.2.4"
+    relay-runtime "14.1.0"
 
 renderkid@^3.0.0:
   version "3.0.0"
