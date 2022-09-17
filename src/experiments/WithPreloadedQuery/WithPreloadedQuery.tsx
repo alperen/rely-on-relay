@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useTransition } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { PreloadedQuery, usePreloadedQuery, useQueryLoader } from 'react-relay';
 import RepositoryQueryDocument, {
@@ -20,20 +20,26 @@ function WithPreloadedQuery({ preloadedQuery }: WithPreloadedQueryProps) {
 }
 
 export default function WithPreloadedQueryPresenter() {
-  const [queryReference, loadQuery] = useQueryLoader<RepositoryQuery>(RepositoryQueryDocument);
+  const [queryReference, loadQuery, disposeQuery] = useQueryLoader<RepositoryQuery>(RepositoryQueryDocument);
+  const [transiting, startTransition] = useTransition();
 
   return (
     <div>
       <button
+        disabled={transiting}
         onClick={() =>
-          loadQuery({
+          startTransition(() => loadQuery({
             name: 'relay',
             owner: 'facebook',
-          })
+          }))
         }
       >
         Load the query
       </button>
+
+      {queryReference && <button onClick={() => disposeQuery()}>Dispose the query</button>}
+
+      <hr />
 
       <ErrorBoundary fallback={<>Something went wrong</>}>
         <Suspense fallback="Loading">

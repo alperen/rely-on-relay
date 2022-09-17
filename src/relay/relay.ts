@@ -6,7 +6,10 @@ import { Variables } from 'relay-runtime/lib/util/RelayRuntimeTypes';
 async function fetchGraphQL(text: string | null, variables: Variables) {
   const REACT_APP_GITHUB_AUTH_TOKEN = process.env.REACT_APP_GITHUB_AUTH_TOKEN;
 
-  invariant(!REACT_APP_GITHUB_AUTH_TOKEN, 'Please spesifcy REACT_APP_GITHUB_AUTH_TOKEN on your .env')
+  invariant(
+    REACT_APP_GITHUB_AUTH_TOKEN,
+    'Please spesifcy REACT_APP_GITHUB_AUTH_TOKEN on your .env',
+  );
 
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
