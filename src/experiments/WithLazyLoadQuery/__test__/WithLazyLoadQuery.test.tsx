@@ -2,7 +2,9 @@ import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { RelayEnvironmentProvider } from 'react-relay';
 import { createMockEnvironment } from 'relay-test-utils';
-import RepositoryQueryDocument, { RepositoryQuery } from '../graphql/__generated__/RepositoryQuery.graphql';
+import RepositoryQueryDocument, {
+  RepositoryQuery,
+} from '../../../graphql/__generated__/RepositoryQuery.graphql';
 import WithLazyLoadQuery from '../WithLazyLoadQuery';
 
 describe('WithLazyLoadQuery', () => {
@@ -12,7 +14,7 @@ describe('WithLazyLoadQuery', () => {
     render(
       <RelayEnvironmentProvider environment={environment}>
         <WithLazyLoadQuery />
-      </RelayEnvironmentProvider>
+      </RelayEnvironmentProvider>,
     );
 
     expect(screen.getByText('Loading')).toBeInTheDocument();
@@ -24,12 +26,11 @@ describe('WithLazyLoadQuery', () => {
     render(
       <RelayEnvironmentProvider environment={environment}>
         <WithLazyLoadQuery />
-      </RelayEnvironmentProvider>
+      </RelayEnvironmentProvider>,
     );
 
-
     act(() => {
-      environment.mock.reject(RepositoryQueryDocument, new Error('Calm down buddy, I made it.'))
+      environment.mock.reject(RepositoryQueryDocument, new Error('Calm down buddy, I made it.'));
     });
 
     expect(await screen.findByText('Something went wrong')).toBeInTheDocument();
@@ -41,14 +42,14 @@ describe('WithLazyLoadQuery', () => {
     render(
       <RelayEnvironmentProvider environment={environment}>
         <WithLazyLoadQuery />
-      </RelayEnvironmentProvider>
+      </RelayEnvironmentProvider>,
     );
 
     act(() => {
       environment.mock.resolve(RepositoryQueryDocument, {
         data: {
-          repository: null
-        } as RepositoryQuery['response']
+          repository: null,
+        } as RepositoryQuery['response'],
       });
     });
 
@@ -61,21 +62,23 @@ describe('WithLazyLoadQuery', () => {
     render(
       <RelayEnvironmentProvider environment={environment}>
         <WithLazyLoadQuery />
-      </RelayEnvironmentProvider>
+      </RelayEnvironmentProvider>,
     );
 
     act(() => {
       environment.mock.resolve(RepositoryQueryDocument, {
         data: {
           repository: {
-            id: "id",
-            description: "description",
-            name: "name",
-          }
-        } as RepositoryQuery['response']
+            id: 'id',
+            description: 'description',
+            name: 'name',
+          },
+        } as RepositoryQuery['response'],
       });
     });
 
-    expect(await screen.findByText('{"id":"id","name":"name","description":"description"}')).toBeInTheDocument();
+    expect(
+      await screen.findByText('{"id":"id","name":"name","description":"description"}'),
+    ).toBeInTheDocument();
   });
 });

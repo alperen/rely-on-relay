@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useLazyLoadQuery } from 'react-relay';
-import RepositoryQueryDocument from './graphql/RepositoryQuery';
-import { RepositoryQuery } from './graphql/__generated__/RepositoryQuery.graphql';
-
+import RepositoryQueryDocument from '../../graphql/RepositoryQuery';
+import { RepositoryQuery } from '../../graphql/__generated__/RepositoryQuery.graphql';
 
 function WithLazyLoadQuery() {
   const data = useLazyLoadQuery<RepositoryQuery>(RepositoryQueryDocument, {
